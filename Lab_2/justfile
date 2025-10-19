@@ -1,27 +1,12 @@
 build:
-    nasm -f bin -o boot.bin boot.nasm
-
-build-color:
-    nasm -f bin -o boot_color.bin boot_simple.nasm
+    nasm -f bin -o build/boot.bin boot.nasm
 
 run: build
-    env -i PATH="/usr/bin:/bin" qemu-system-x86_64 -drive file=boot.bin,format=raw -nographic
-
-run-color: build-color
-    @echo "Running bootloader with colored console output..."
-    @echo "You should see colorful text below!"
+    @echo "Running Lab 2: Protected Mode Bootloader"
     @echo "Press Ctrl+A, then X to exit QEMU"
-    timeout 10 qemu-system-x86_64 -drive file=boot_color.bin,format=raw -serial stdio -display none
-
-run-visible: build
-    echo "Running bootloader with graphical display:"
-    qemu-system-x86_64 -drive file=boot.bin,format=raw
-
-demo: run-color
+    timeout 5 qemu-system-x86_64 -drive file=build/boot.bin,format=raw -serial stdio -display none
 
 clean:
-    #!/usr/bin/env sh
-    set -eu
-    echo "Removing build artifacts..."
-    rm -f *.bin *.txt
-    echo "Cleaned project."
+    rm -rf build/*
+
+demo: run
