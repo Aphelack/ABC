@@ -1,1 +1,17 @@
-/Lab_2/*.bin
+# Build directories
+*/build/
+
+# Binary files
+*.bin
+*.o
+*.elf
+*.img
+
+# Editor files  
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db

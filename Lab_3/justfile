@@ -1,0 +1,12 @@
+build:
+    nasm -f bin -o build/boot.bin boot.nasm
+
+run: build
+    @echo "Running Lab 3: Advanced Multitasking"
+    @echo "Press Ctrl+A, then X to exit QEMU"
+    timeout 5 qemu-system-x86_64 -drive file=build/boot.bin,format=raw -serial stdio -display none
+
+clean:
+    rm -rf build/*
+
+demo: run
