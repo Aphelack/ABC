@@ -150,14 +150,6 @@ int main() {
     
     testMMX("Test 3: Edge case with zero values", A3, B3, C3, D3);
     
-    std::cout << "\n=================================================" << std::endl;
-    std::cout << "MMX Implementation Features:" << std::endl;
-    std::cout << "1. Sign extension of 8-bit signed integers to 16-bit" << std::endl;
-    std::cout << "2. Zero comparison before unpacking (pcmpgtb instruction)" << std::endl;
-    std::cout << "3. Parallel multiplication using pmullw instruction" << std::endl;
-    std::cout << "4. Parallel addition using paddw instruction" << std::endl;
-    std::cout << "5. Proper handling of negative values" << std::endl;
-    std::cout << "6. Processing 8 elements simultaneously using MMX registers" << std::endl;
     
     return 0;
 }
