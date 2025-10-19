@@ -1,0 +1,10 @@
+build:
+    nasm -f bin -o boot.bin boot.nasm
+run: build
+    env -i PATH="/usr/bin:/bin" qemu-system-x86_64 -drive file=boot.bin,format=raw -nographic
+clean:
+    #!/usr/bin/env sh
+    set -eu
+    echo "Removing build artifacts..."
+    rm -f boot.bin 
+    echo "Cleaned project."
